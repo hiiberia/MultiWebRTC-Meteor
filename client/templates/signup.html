@@ -1,0 +1,21 @@
+<template name="signup" xmlns="http://www.w3.org/1999/html">
+    <body>
+    <div class="top"><div class="logos"><!--<img id="logoRTC" src="img/WebRTClogo.png">--><img id="logoBeta" src="/img/beta.png"><!--<img id="logoSeaplace" src="img/logoSeaplace.png">--><img id="logoHI" src="/img/logoHi.png"></div></div>
+    <div class="up"></div>
+    <div class="signupBox">
+        <form class="signupform"  method='post' accept-charset='UTF-8'>
+                <img src="/img/hi_mundo.png" style="width:50px;margin-top:10px"><br/><br/>
+                <div class="{{errorClass 'username'}}"><input type="text" id="sp-username" name="username" placeholder="Usuario"><br/><br/></div>
+
+                <div class="{{errorClass 'password'}}"><input type="password" id="sp-password" name="password" placeholder="Contraseña" ><br/><br/></div>
+
+                <div class="{{errorClass 'confirm'}}"><input type="password" id="sp-confirm-password" name="confirm-password" placeholder="Confirme contraseña"><br/><br/></div>
+                <!--<input id="sala" placeholder="Sala"><br/><br/>-->
+                <button type="submit" name='Submit' class="btn btn-primary btn-block">Registrar</button><br/><br/>
+                <!--<br/><div id="error" name="error" style="color: gray; text-align:left;padding-left:20px;padding-top:4px;display:none; font-size:10px;">Por favor, rellene los campos.</div>-->
+                <a href="{{pathFor 'login'}}" class="link-auth-alt">¿Ya tienes una cuenta? Identíficate </a>
+        </form>
+    </div>
+    <div class="down"></div>
+    </body>
+</template>
