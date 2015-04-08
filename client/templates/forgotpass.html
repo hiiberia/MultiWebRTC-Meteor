@@ -1,0 +1,27 @@
+<template name="forgotpass">
+    <body>
+    <div class="top"><div class="logos"><!--<img id="logoRTC" src="img/WebRTClogo.png">--><img id="logoBeta" src="/img/beta.png"><!--<img id="logoSeaplace" src="img/logoSeaplace.png">--><img id="logoHI" src="/img/logoHi.png"></div></div>
+    <div class="up"></div>
+    <!--<div class="middle">-->
+    <div class="loginBox">
+        <img src="/img/hi_mundo.png" style="width:50px;margin-top:10px"><br/><br/>
+        <form class="forgotpassform"  method='post' accept-charset='UTF-8'>
+            <div class="textMiddle">
+                <div class="input-group {{errorClass 'email'}}" style="margin: 15px 0 10px 0">
+                    <span class="input-group-addon" id="span-email">@</span>
+                    <input type="email" class="form-control" id="fp-email" aria-describedby="span-email" name="email" placeholder="Correo electrónico">
+                </div>
+                <!--<input id="sala" placeholder="Sala"><br/><br/>-->
+                <button type="submit" class="btn btn-primary btn-block" id="send_forgot_password" data-loading-text="prueba" data-complete-text="prueba">Envíar</button>
+                <!--<button type="submit" class="btn btn-primary btn-block" id="send_forgot_password" data-loading-text="{{_ 'send_forgot_pass_loading'}}" data-complete-text="{{_ 'send_forgot_pass_ok'}}">{{_ "send_forgot_pass"}}</button>-->
+                <!--<br/><div id="error" name="error" style="color: gray; text-align:left;padding-left:20px;padding-top:4px;display:none; font-size:10px;">Por favor, rellene los campos.</div>-->
+                <a href="{{pathFor 'login'}}" class="link-auth-alt">¿Recuerda la contraseña? Entre ahora.</a>
+
+            </div>
+        </form>
+    </div>
+    <!--</div>-->
+    <div class="down"></div>
+
+    </body>
+</template>

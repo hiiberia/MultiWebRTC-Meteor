@@ -1,7 +1,32 @@
-var ERRORS_KEY = "signUpErrors";
-HTTP.get(Meteor.absoluteUrl("/bin/prueba.js"), function(err,result) {
-console.log(result.data);
-});
+var ERRORS_KEY = "loginErrors";
+
+Template.login.created = function () {
+    Session.set(ERRORS_KEY, {});
+
+    // When the link in a verification mail is clicked, _verifyEmailToken has something
+    // Workaround because of this issue: https://github.com/iron-meteor/iron-router/issues/3
+    //alert ("Token de verify email:" + Accounts._verifyEmailToken);
+    if (Accounts._verifyEmailToken) {
+        console.log("_verifyEmailToken exists: ", Accounts._verifyEmailToken);
+        Accounts.verifyEmail(Accounts._verifyEmailToken, function(err) {
+            if (err != null) {
+                if (err.message = 'Verify email link expired [403]') {
+                    alert('email_expired');
+                }
+            } else {
+                alert('email_confirmed');
+                Accounts._verifyEmailToken = ""; // To prevent future errors
+            }
+        });
+    }
+};
+/*Template.login.rendered = function () {
+    // When the email link for reseting password is clicked, _resetPasswordToken has something
+    // Workaround because of this issue: https://github.com/iron-meteor/iron-router/issues/3
+    if (Accounts._resetPasswordToken) {
+        Session.set('resetPassword', Accounts._resetPasswordToken);
+    }
+}*/
 
 Template.login.helpers({
     errorClass: function (key) {
@@ -18,6 +43,8 @@ Template.login.events({
 
         var errors = {};
 
+        //alert(JSON.parse(Assets.getText('pruebajson.json')));
+
         if (!username) {
             errors.username = "Username or email is required";
         }
@@ -25,6 +52,13 @@ Template.login.events({
         if (!password) {
             errors.password = "Password is required";
         }
+
+       /* HTTP.get(Meteor.absoluteUrl("/lib/prueba.js"), function(err,result) {
+            alert(JSON.stringify(result));
+        });*/
+
+        /*var prueba = JSON.parse(Assets.getText("prueba.js"));
+        alert(prueba);*/
 
         Session.set(ERRORS_KEY, errors);
         if (_.keys(errors).length) {
@@ -41,85 +75,8 @@ Template.login.events({
              alert("Email not verified. Check your inbox folder.");
              return false;
              }*/
-            Router.go('hello');
+            Router.go('joinRoom');
         });
-        return false;
-    },
-    'submit .signupform': function (event, template) {
-        var username = template.$('#sp-username').val();
-        //var email = template.$('#sp-email').val();
-        var password = template.$('#sp-password').val();
-        var confirm = template.$('#sp-confirm-password').val();
-
-        var errors = {};
-
-        if (!username) {
-            errors.username = "Username required";
-        }
-
-       /* if (!email) {
-            errors.email = "Email required";
-        }*/
-
-        if (!password) {
-            errors.password = "Password required";
-        }
-
-        if (confirm != password) {
-            errors.confirm = "Please confirm your password";
-        }
-
-        Session.set(ERRORS_KEY, errors);
-        if (_.keys(errors).length) {
-            alert(_.values(Session.get(ERRORS_KEY)));
-            return false;
-        }
-
-        Accounts.createUser({
-            username: username,
-            //email: email,
-            password: password
-        }, function (error) {
-            if (error) {
-                alert(error.reason);
-                return false;
-            }
-
-            alert("User created");
-            console.log(Meteor.user());
-
-            template.$('#sp-username').val("");
-            template.$('#sp-password').val("");
-            //template.$('#sp-email').val("");
-            template.$('#sp-confirm-password').val("");
-
-            template.$('#login-label').trigger('click');
-
-            //Create default configuration
-            /*var params = {};
-            params.id = Meteor.userId();
-            params.offlineminutes = 1; // min
-            params.postboxtextsize = 11; // px
-            params.devicestablerefreshspeed = 10; // sec
-            params.messageboxrefreshspeed = 3; // sec
-            params.autoscrolltextbox = false;
-            params.timezonesetting = null;*/
-            //Meteor.call('addConfig', params);
-        });
-
         return false;
     }
-    /*'click .log-sign': function (event, template) {
-        //alert(event.target.id);
-        //alert (JSON.stringify(template));
-        if (event.target.id == "login-radio") {
-            template.$('.signupform').hide();
-            template.$('.loginform').show();
-            //template.$('#form').css('height', "260px");
-        } else if (event.target.id == "signup-radio") {
-            template.$('.loginform').hide();
-            template.$('.signupform').show();
-            //template.$('#form').css('height', "357px");
-        }
-    }*/
 })

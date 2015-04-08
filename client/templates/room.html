@@ -1,0 +1,31 @@
+<template name="room">
+    <div class="top"><div class="logos"><img id="logoBeta" src="/img/beta.png"><!--<img id="logoSeaplace" src="/img/logoSeaplace.png">--><img id="logoHI" src="/img/logoHi.png"></div></div>
+    <div class="up"></div>
+    <div class="centre" style="width:100%">
+        <div id="divToolBar" class="menu" style="margin: 0 auto; width:940px; position:absolute; left:0px; right:0px; top:100px; height:40px">
+            <button id="buttonOpenChat" title="Open Chat" style="position: absolute; left:0px; top:0px; margin-right: 5px; width:100px"><span class="icon-open-chat button-icon"></span>Chat</button><br>
+            <button id="sendFile" title="Send File" style="position: absolute; left:105px; top:0px; width:100px"><span class="icon-send-file button-icon"></span>File</button><br>
+            <button id="buttonShareDesktop" title="Share Desktop" style="position: absolute; left:210px; top:0px; width:100px"><span class="icon-share-desktop button-icon"></span>Desktop</button><br>
+            <button id="buttonAutoFocus" title="Auto Focus" style="position: absolute; left:315px; top:0px; width:100px"><span class="icon-auto-focus button-icon"></span>Focus</button><br>
+            <button id="buttonMute" title="Mute" style="position: absolute; left:420px; top:0px; width:100px"><span class="icon-mute button-icon"></span>Mute</button><br>
+            <button id="buttonVolumeControl" title="Volume Control" style="position: absolute; left:525px; top:0px; width:100px"><span class="icon-volume-control button-icon"></span>Volume</button><br>
+            <button id="buttonPause" title="Pause" style="position: absolute; left:630px; top:0px; width:100px"><span class="icon-pause button-icon"></span>Pause</button><br>
+            <button id="buttonRecord" title="Record" style="position: absolute; left:735px; top:0px; width:100px"><span class="icon-record button-icon"></span>Record</button><br>
+            <button id="buttonQuit" title="Quit" style="position: absolute; left:840px; top:0px; width:100px"><span class="icon-quit button-icon"></span>Quit</button><br>
+        </div>
+
+        <div class="mainPanel"  style="margin: 0 auto; width:885px; position:absolute; top:150px; left:0px; right:0px">
+            <div id="divRemoteViewsParent" class="divRemoteViewsParent">
+                <h3>Remote views</h3>
+                <div id="divRemoteViews" class="divRemoteViews"></div>
+            </div>
+            <div id="divVideoPanel" style="position:absolute; top:0px; bottom:0px; left:220px; right:0px">
+                <div id="divTitleVideoPanel">
+                    <h3 id="titleRemoteVideos">Main remote video</h3>
+                    <div id="divMainVideoInfo" class="divMainVideoInfo"></div>
+                    <button id="buttonResize" title="Resize"><span class="icon-resizeOut button-icon"></span>Resize</button>
+                </div>
+            </div>
+        </div>
+        </div>
+</template>

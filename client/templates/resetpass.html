@@ -1,0 +1,25 @@
+<template name="resetpass">
+    <body>
+    <div class="top"><div class="logos"><!--<img id="logoRTC" src="img/WebRTClogo.png">--><img id="logoBeta" src="/img/beta.png"><!--<img id="logoSeaplace" src="img/logoSeaplace.png">--><img id="logoHI" src="/img/logoHi.png"></div></div>
+    <div class="up"></div>
+    <!--<div class="middle">-->
+    <div class="loginBox">
+        <img src="/img/hi_mundo.png" style="width:50px;margin-top:10px"><br/><br/>
+
+        <form class="resetpassform"  method='post' accept-charset='UTF-8'>
+                <div class="{{errorClass 'password'}}"><input type="password" id="rp-password" name="password" placeholder="Contraseña nueva"><br/><br/></div>
+
+                <div class="{{errorClass 'confirm'}}"><input type="password" id="rp-confirm-password" name="confirm-password" placeholder="Confirme la contraseña nueva"><br/><br/></div>
+
+                <!--<input id="sala" placeholder="Sala"><br/><br/>-->
+                <button type="submit" name='Submit' class="btn btn-primary btn-block">Establecer nueva contraseña</button><br/><br/>
+                <!--<br/><div id="error" name="error" style="color: gray; text-align:left;padding-left:20px;padding-top:4px;display:none; font-size:10px;">Por favor, rellene los campos.</div>-->
+                <!--<a href="{{pathFor 'signup'}}" class="link-auth-alt">¿Necesitas una cuenta? Regístrate ahora.</a>-->
+        </form>
+
+    </div>
+    <!--</div>-->
+    <div class="down"></div>
+
+    </body>
+</template>

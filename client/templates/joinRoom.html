@@ -1,0 +1,52 @@
+<template name="joinRoom">
+    <body>
+    <div class="top"><div class="logos"><!--<img id="logoRTC" src="img/WebRTClogo.png">--><img id="logoBeta" src="/img/beta.png"><!--<img id="logoSeaplace" src="img/logoSeaplace.png">--><img id="logoHI" src="/img/logoHi.png"><button type="submit" name='Submit' id="signOut" class="sign-out btn btn-primary btn-block" style="float:right">Salir</button></div></div>
+    <!--<button type="submit" name='Submit' id="signOut" class="sign-out btn btn-primary btn-block" style="float:right">Salir</button><br/>-->
+    <div class="up"></div>
+    <!--<div class="middle">-->
+    <div class="joinRoomBox">
+        <img src="/img/hi_mundo.png" style="width:50px;margin-top:10px"><br/><br/>
+        <p><strong>Cree una nueva sala: </strong></p>
+        <form class="createroomform"  method='post' accept-charset='UTF-8'>
+            <div class="{{errorClass 'newroomname'}}"><input type="text" name="newroomname" id="newroomname" placeholder="Escriba el nombre de la nueva sala"><br/><br/></div>
+            <button type="submit" name='Submit' class="btn btn-primary btn-block">Crear sala nueva</button><br/><br/>
+        </form>
+        <p><strong>O únase a una existente:</strong></p>
+        <table class="table table-hover header-fixed">
+        <thead>
+        <tr>
+            <th>Sala</th>
+            <th>Usuarios</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        {{#each rooms}}
+            <tr class="roomrow">
+                <td>{{roomName}}</td>
+                <td>{{usernames}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+        </table>
+        <!--<table id="rooms" class="table">
+            <thead>
+            <tr>
+                <th>Sala</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each rooms}}
+                <tr>
+                    <td>{{roomName}}</td>
+                </tr>
+            {{/each}}
+
+            </tbody>
+        </table>-->
+    </div>
+    <div class="down"></div>
+
+    </body>
+</template>
+

@@ -9,7 +9,7 @@ Template.signup.helpers({
 Template.signup.events({
     'submit .signupform': function (event, template) {
         var username = template.$('#sp-username').val();
-        //var email = template.$('#sp-email').val();
+        var email = template.$('#sp-email').val();
         var password = template.$('#sp-password').val();
         var confirm = template.$('#sp-confirm-password').val();
 
@@ -19,9 +19,9 @@ Template.signup.events({
             errors.username = "Username required";
         }
 
-        /* if (!email) {
-         errors.email = "Email required";
-         }*/
+        if (!email) {
+            errors.email = "Email required";
+        }
 
         if (!password) {
             errors.password = "Password required";
@@ -39,7 +39,7 @@ Template.signup.events({
 
         Accounts.createUser({
             username: username,
-            //email: email,
+            email: email,
             password: password
         }, function (error) {
             if (error) {
@@ -52,10 +52,14 @@ Template.signup.events({
 
             template.$('#sp-username').val("");
             template.$('#sp-password').val("");
-            //template.$('#sp-email').val("");
+            template.$('#sp-email').val("");
             template.$('#sp-confirm-password').val("");
 
             template.$('#login-label').trigger('click');
+
+            alert('Se le ha enviado un email para que valide su dirección de correo');
+
+            Router.go('login');
 
             //Create default configuration
             /*var params = {};
