@@ -1,0 +1,127 @@
+#divRemoteViewsParent{
+    position: absolute;
+    top: 0px;
+    left:0px;
+    height:484px;
+    width:200px;
+}
+
+#divRemoteViews{
+    border: solid 1px #DDD;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height:484px;
+    width:200px;
+    /*overflow-y:auto;*/
+    /*overflow-x:hidden;*/
+    /*height:100%;*/
+}
+#divTitleVideoPanel{
+    width: 643px;
+    border: solid 1px #DDD;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color:#DDD;
+}
+
+#titleRemoteVideos{
+    display: inline-block;
+    text-align:center;
+}
+
+#divMainVideoInfo {
+    display: inline-block;
+    text-align:center;
+    /*margin-left: 80px;*/
+}
+
+#buttonResize{
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    float: right;
+
+}
+
+#divLocalVideo {
+    position: absolute;
+    border-style:solid;
+    border-width:2px;
+    height: 480px;
+    width: 640px;
+}
+
+#localVideo {
+    position: absolute;
+    height: 480px;
+    width: 640px;
+}
+
+#divRemoteVideo {
+    position: absolute;
+    border: solid 2px #DDD;
+    height:484px;
+    width:200px;
+}
+
+#remoteVideo {
+    position: absolute;
+    height: 480px;
+    width: 640px;
+}
+
+#divLocalVideoSmall {
+    position: absolute;
+    border-style:solid;
+    border-width:0px;
+    height: 120px;
+    width: 160px;
+    top: 400px;
+    left: 478px;
+}
+
+#localVideoSmall {
+    position: absolute;
+    height: 120px;
+    width: 160px;
+}
+
+#divLocalScreenVideoSmall{
+    position: absolute;
+    border-style:solid;
+    border-width:0px;
+    height: 120px;
+    width: 160px;
+    top: 50px;
+    left: 478px;
+}
+
+#localScreenVideoSmall{
+    position: absolute;
+    height: 120px;
+    width: 160px;
+}
+
+.remoteVideoSmall {
+    position: relative;
+    width: 200px;
+}
+
+
+.buttonFocusRemoteVideo {
+    position: relative;
+    width: 200px;
+    margin-bottom:10px;
+}
+
+#localVideo {
+    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg); /* Firefox */
+}
+
+#localVideoSmall {
+    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg); /* Firefox */
+}

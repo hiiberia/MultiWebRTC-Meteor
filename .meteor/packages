@@ -5,8 +5,11 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
 insecure
 iron:router
 accounts-password
 http
+email
+jquery-ui-bootstrap
+ntejedor:errors
+autopublish

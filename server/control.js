@@ -1,12 +1,6 @@
 Meteor.startup(function () {
     // code to run on server at startup
     // Configuration of smtp to send emails - DO IT WITH AWS!
-    /*smtp = {
-        username: 'prueba@gmail.com',
-        password: 'contra',
-        server: 'smtp.gmail.com',
-        port: 25
-    }*/
 
     // Configuración de safekids
    smtp = {
@@ -19,22 +13,16 @@ Meteor.startup(function () {
         server: 'correo.hi-iberia.es',
         port: 465
     }
-    //process.env.MAIL_URL = 'smtp://' + encodeURIComponent(smtp.username) + ":" + encodeURIComponent(smtp.password) + "@" + encodeURIComponent(smtp.server) + ':' + smtp.port;
 
     process.env.MAIL_URL = 'smtp://' + encodeURIComponent(smtp.username) + ':' + encodeURIComponent(smtp.password) + '@' + encodeURIComponent(smtp.server) + ':' + smtp.port;
 
     Accounts.emailTemplates.resetPassword.text = function (user, url) {
         var url = url.replace('#/', '');
         //var id = url.substring(url.lastIndexOf('/') + 1);
-        return "Haga click en el link de abajo para validar su contraseña: "+ url;
+        return "Hola, \n\nHaga click en el link de abajo para reestablecer su contraseña: "+ url;
     }
-    /*Accounts.urls.resetPassword = function(token) {
-        return Meteor.absoluteUrl('reset-password/' + token);
-    };*/
-   /* Accounts.resetPassword.text = function(user, url) {
-        return "Haga click en el link de abajo para validar su contraseña: " + url;
-    }*/
-    Accounts.emailTemplates.from = "Multi-Hiiberia <ntejedor@hi-iberia.es>";
+
+    Accounts.emailTemplates.from = "Multi-Hiiberia <soporte@hi-iberia.es>";
     Accounts.emailTemplates.siteName = "MultiHIIberia";
     Accounts.emailTemplates.verifyEmail.subject = function (user) {
         return "Confirme su dirección de correo electrónico, " + user.username;
@@ -52,6 +40,22 @@ Meteor.startup(function () {
     Accounts.onCreateUser(function (options, user) {
         user.deviceConnected = false;
         return user;
-    })
+    });
+
+    /*$(window).bind('beforeunload', function() {
+        closingWindow();
+
+        // have to return null, unless you want a chrome popup alert
+        return null;
+
+        // have to return null, unless you want a chrome popup alert
+        //return 'Are you sure you want to leave your Vonvo?';
+    });
+
+    closingWindow = function(){
+         alert('closingWindow');
+         Meteor.call('deleteUsernamefromRoom', 'room');
+    }*/
+
 
 });

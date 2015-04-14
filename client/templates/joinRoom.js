@@ -3,7 +3,10 @@ var ERRORS_KEY = "joinRoomErrors";
 
 Template.joinRoom.helpers({
     //rooms: rooms
-    rooms: function() { return Rooms.find({}, {sort: {createdAt: -1}}); },
+    rooms: function() {
+       // alert (JSON.stringify(Rooms.find({}, {sort: {createdAt: -1}})));
+        return Rooms.find({}, {sort: {createdAt: -1}});
+    },
     errorClass: function (key) {
         return Session.get(ERRORS_KEY)[key] && 'has-error';
     }
@@ -13,15 +16,11 @@ Template.joinRoom.events({
     'submit .createroomform': function (event,template) {
         // This function is called when the new room form is submitted
         event.preventDefault();
-        //alert("Se pulsa el botón para crear nueva sala");
-        //alert(event);
-        //alert("prueba");
-        //alert(JSON.stringify(event));
-        //alert(JSON.stringify(template));
-        //event.preventDefault();
-        //var roomNamebis = event.target.text.value;
+        //alert ("Current User ID " +  Session.get("currentUserID"));
+        //alert ("Current Username " +  Session.get("currentUsername"));
+
         var roomName = template.$('#newroomname').val();
-        alert(roomName);
+        //alert(roomName);
 
         var errors = {};
 
@@ -34,10 +33,12 @@ Template.joinRoom.events({
             alert(_.values(Session.get(ERRORS_KEY)));
             return false;
         }
+        //Se comprueba que no existe ya una sala con ese nombre
         var room = Rooms.findOne({roomName: roomName});
-        if (typeof room == "undefined")
+        //alert (room);
+        if ((typeof room == "null")||(typeof room == 'undefined'))
         {
-            Meteor.call("addRoom", roomName);
+            Meteor.call("addRoom", roomName, Session.get("currentUserID"), Session.get ("currentUsername"));
             Router.go('/room/'+roomName);
         }
         else
@@ -45,18 +46,10 @@ Template.joinRoom.events({
             alert ("Room already exists!");
         }
 
-
-
-        //Meteor.call("addRoom", roomName);
-
-        //Router.go('/room/'+roomName);
-        // Prevent default form submit
         return false;
     },
     "click .roomrow": function () {
-        //console.log("You Select Room Row " + this.roomName);
-        //alert(this.usernames + ' ' + this.roomName);
-        Meteor.call('updateUsernamesRoom',this.roomName);
+        Meteor.call('updateUsernamesRoom',this.roomName,Session.get ("currentUsername"));
         Router.go('/room/'+this.roomName);
     },
     "click #signOut": function (){

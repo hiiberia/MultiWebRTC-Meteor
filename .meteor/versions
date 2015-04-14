@@ -29,6 +29,7 @@ iron:middleware-stack@1.0.7
 iron:router@1.0.7
 iron:url@1.0.7
 jquery@1.11.3_2
+jquery-ui-bootstrap@0.0.0
 json@1.0.3
 launch-screen@1.0.2
 livedata@1.0.13
@@ -40,7 +41,9 @@ minifiers@1.1.4
 minimongo@1.0.7
 mobile-status-bar@1.0.3
 mongo@1.1.0
+mongo-livedata@1.0.8
 npm-bcrypt@0.7.8_1
+ntejedor:errors@0.0.1
 observe-sequence@1.0.5
 ordered-dict@1.0.3
 random@1.0.3

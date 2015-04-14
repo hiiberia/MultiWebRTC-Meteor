@@ -17,13 +17,34 @@
         <div class="mainPanel"  style="margin: 0 auto; width:885px; position:absolute; top:150px; left:0px; right:0px">
             <div id="divRemoteViewsParent" class="divRemoteViewsParent">
                 <h3>Remote views</h3>
-                <div id="divRemoteViews" class="divRemoteViews"></div>
+                <div id="divRemoteViews" class="divRemoteViews">
+                </div>
             </div>
             <div id="divVideoPanel" style="position:absolute; top:0px; bottom:0px; left:220px; right:0px">
+<!--                <div id="divTitleVideoPanel">
+                    <h3 id="titleRemoteVideos">Main remote video</h3>
+                    <button id="startvideo">getLocalStream</button>
+                        <video id="video_canvas" autoplay muted></video>
+                    <button id="buttonResize" title="Resize"><span class="icon-resizeOut button-icon"></span>Resize</button>
+                </div>-->
+
                 <div id="divTitleVideoPanel">
                     <h3 id="titleRemoteVideos">Main remote video</h3>
                     <div id="divMainVideoInfo" class="divMainVideoInfo"></div>
                     <button id="buttonResize" title="Resize"><span class="icon-resizeOut button-icon"></span>Resize</button>
+                    <button id="startvideo">getLocalStream</button>
+                </div>
+                <div id="divRemoteVideo" class="divRemoteVideo">
+                    <video id="remoteVideo" class="remoteVideo" autoplay="autoplay"></video>
+                </div>
+                <div id="divLocalVideo">
+                    <video id="local-video" muted="true" autoplay="autoplay"	poster="/img/RTC_background.png"></video>
+                </div>
+                <div id="divLocalScreenVideoSmall" class="divLocalScreenVideoSmall">
+                    <video id="localScreenVideoSmall" class="localScreenVideoSmall" autoplay="autoplay"></video>
+                </div>
+                <div id="divLocalVideoSmall" class="divLocalVideoSmall">
+                    <video id="localVideoSmall" muted="true" class="localVideoSmall" autoplay="autoplay"></video>
                 </div>
             </div>
         </div>

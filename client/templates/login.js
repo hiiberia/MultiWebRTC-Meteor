@@ -69,13 +69,18 @@ Template.login.events({
         Meteor.loginWithPassword(username, password, function (error) {
             if (error) {
                 alert(error.reason);
+                // EJEMPLO USO PACKAGE PROPIO Errors.throw(error.reason);
                 return Session.set(ERRORS_KEY, {'none': error.reason});
             }
             /* if (!Meteor.user().emails[0].verified) {
              alert("Email not verified. Check your inbox folder.");
              return false;
              }*/
+            Session.set('currentUserID', Meteor.userId());
+            Session.set('currentUsername', Meteor.user().username);
             Router.go('joinRoom');
+            //connectSignallingServer();
+            registerUser();
         });
         return false;
     }
